@@ -17,6 +17,7 @@ import {
     Link,
     NavLink
 } from "react-router-dom";
+import Civilization from './components/Components routes/Civilization';
 import Contacto from './components/Components routes/Contacto';
 import Inicio from './components/Components routes/Inicio';
 import Nosotros from './components/Components routes/Nosotros';
@@ -72,14 +73,17 @@ function App(){
           </NavLink>
         </div>
         <hr/>
-        <Switch> {/*El contenido dinamico que queramos generar va dentro del switch */}
+        <Switch> {/*El contenido dinamico que queramos generar va dentro del switch, vamos desde el màs especifico hasta lo más general, de lo contrario se pone el exact*/}
+          <Route path="/nosotros/:id">
+            <Civilization/>
+          </Route>
           <Route path="/contacto">
             <Contacto/>
           </Route>
           <Route path="/nosotros">
             <Nosotros/>
           </Route>
-          <Route path="/">
+          <Route path="/" exact>
             <Inicio/>
           </Route>
         </Switch>
